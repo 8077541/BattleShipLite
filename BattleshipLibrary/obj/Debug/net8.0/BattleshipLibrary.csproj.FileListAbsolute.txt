@@ -9,3 +9,4 @@ C:\Users\amogus\Documents\cshrp\BattleShips\BattleshipLibrary\obj\Debug\net8.0\B
 C:\Users\amogus\Documents\cshrp\BattleShips\BattleshipLibrary\obj\Debug\net8.0\refint\BattleshipLibrary.dll
 C:\Users\amogus\Documents\cshrp\BattleShips\BattleshipLibrary\obj\Debug\net8.0\BattleshipLibrary.pdb
 C:\Users\amogus\Documents\cshrp\BattleShips\BattleshipLibrary\obj\Debug\net8.0\ref\BattleshipLibrary.dll
+C:\Users\amogus\Documents\cshrp\BattleShips\BattleshipLibrary\obj\Debug\net8.0\BattleshipLibrary.sourcelink.json

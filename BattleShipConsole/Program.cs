@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,120 @@ namespace BattleShipConsole
         static void Main(string[] args)
         {
             WelcomeMessage();
-            PlayerInfoModel player1 = CreatePlayer("Player 1");
-            PlayerInfoModel player2 = CreatePlayer("Player 2");
+
+            PlayerInfoModel activePlayer = CreatePlayer("Player 1");
+            PlayerInfoModel opponent = CreatePlayer("Player 2");
+            PlayerInfoModel winner = null;
+
+            do
+            {
+                //Display grid from activePlayer on where they fired
+                DisplayShotGrid(activePlayer);
+
+                //Ask activePlayer for a shot 
+                //Determine if it is a valid shot
+                //Determine shot results
+                RecordPlayerShot(activePlayer, opponent);
+
+                //Determine if the game should continue
+                bool doesGameContinue = GameLogic.PlayerStillActive(opponent);
+
+                //If over, set activePlayer as winner
+                if (doesGameContinue)
+                {
+                    //swap with temp var
+
+                    // PlayerInfoModel temp = opponent;
+                    // opponent = activePlayer;
+                    // activePlayer = temp;
+
+                    //swap with Tuple
+                    (activePlayer, opponent) = (opponent, activePlayer);
+                }
+                else
+                {
+                    winner = activePlayer;
+                }
+
+                //Else, swap positions (active player = opponent)
+
+
+
+            } while (winner == null);
+
+            IdentifyWinner(winner);
+
             Console.ReadLine();
         }
+
+        private static void IdentifyWinner(PlayerInfoModel winner)
+        {
+            Console.WriteLine($"Congratulations to {winner.UsersName} for winning!");
+            Console.WriteLine($"{winner.UsersName} took {GameLogic.GetShotCount(winner)} shots.");
+        }
+
+        private static void RecordPlayerShot(PlayerInfoModel activePlayer, PlayerInfoModel opponent)
+        {
+            bool isValidShot = false;
+            string row = "";
+            int column = 0;
+            do
+            {
+                string shot = AskForShot();
+                (row, column) = GameLogic.SplitShotIntoRowAndColumn(shot);
+                isValidShot = GameLogic.ValidateShot(activePlayer, col, row);
+
+                if (isValidShot == false)
+                {
+                    Console.WriteLine("Invalid shot location. Please try again.");
+                }
+
+            } while (isValidShot == false);
+
+            bool isAHit = GameLogic.IdentifyShotResult(opponent, row, column);
+            //Determine shot results
+            GameLogic.MarkShotResult(activePlayer, row, column, isAHit);
+            //Record Results
+        }
+
+        private static string AskForShot()
+        {
+            Console.Write("Please enter your shot selection: ");
+            return Console.ReadLine();
+        }
+
+        private static void DisplayShotGrid(PlayerInfoModel activePlayer)
+        {
+            string currentRow = activePlayer.ShotGrid[0].SpotLetter;
+
+            foreach (var gridSpot in activePlayer.ShotGrid)
+            {
+                if (gridSpot.SpotLetter != currentRow)
+                {
+                    currentRow = gridSpot.SpotLetter;
+                    Console.WriteLine();
+                }
+
+                if (gridSpot.Status == GridSpotStatus.Empty)
+                {
+                    Console.Write($" {gridSpot.SpotLetter}{gridSpot.SpotNumber} ");
+                }
+                else if (gridSpot.Status == GridSpotStatus.Hit)
+                {
+                    Console.Write(" X ");
+                }
+                else if (gridSpot.Status == GridSpotStatus.Miss)
+                {
+                    Console.Write(" O ");
+                }
+                else
+                {
+                    Console.Write(" ? ");
+                }
+
+            }
+        }
+
         private static void WelcomeMessage()
         {
             Console.WriteLine("");

@@ -16,3 +16,4 @@ C:\Users\amogus\Documents\cshrp\BattleShips\BattleShipConsole\bin\Debug\net8.0\B
 C:\Users\amogus\Documents\cshrp\BattleShips\BattleShipConsole\bin\Debug\net8.0\BattleshipLibrary.pdb
 C:\Users\amogus\Documents\cshrp\BattleShips\BattleShipConsole\obj\Debug\net8.0\BattleShipConsole.csproj.AssemblyReference.cache
 C:\Users\amogus\Documents\cshrp\BattleShips\BattleShipConsole\obj\Debug\net8.0\BattleSh.868F5203.Up2Date
+C:\Users\amogus\Documents\cshrp\BattleShips\BattleShipConsole\obj\Debug\net8.0\BattleShipConsole.sourcelink.json
