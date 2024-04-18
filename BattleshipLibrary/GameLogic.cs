@@ -32,9 +32,18 @@ namespace BattleshipLibrary
             throw new NotImplementedException();
         }
 
-        public static bool PlayerStillActive(PlayerInfoModel opponent)
+        public static bool PlayerStillActive(PlayerInfoModel player)
         {
-            throw new NotImplementedException();
+            bool isActive = false;
+
+            foreach (var ship in player.ShipLocations)
+            {
+                if (ship.Status != GridSpotStatus.Sunk)
+                {
+                    isActive = true;
+                }
+            }
+            return isActive;
         }
 
         private static void AddGridSpot(PlayerInfoModel model, string letter, int number)

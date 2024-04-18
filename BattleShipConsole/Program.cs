@@ -70,12 +70,12 @@ namespace BattleShipConsole
         {
             bool isValidShot = false;
             string row = "";
-            int column = 0;
+            int col = 0;
             do
             {
                 string shot = AskForShot();
-                (row, column) = GameLogic.SplitShotIntoRowAndColumn(shot);
-                isValidShot = GameLogic.ValidateShot(activePlayer, col, row);
+                (row, col) = GameLogic.SplitShotIntoRowAndColumn(shot);
+                isValidShot = GameLogic.ValidateShot(activePlayer, row, col);
 
                 if (isValidShot == false)
                 {
@@ -84,9 +84,9 @@ namespace BattleShipConsole
 
             } while (isValidShot == false);
 
-            bool isAHit = GameLogic.IdentifyShotResult(opponent, row, column);
+            bool isAHit = GameLogic.IdentifyShotResult(opponent, row, col);
             //Determine shot results
-            GameLogic.MarkShotResult(activePlayer, row, column, isAHit);
+            GameLogic.MarkShotResult(activePlayer, row, col, isAHit);
             //Record Results
         }
 
