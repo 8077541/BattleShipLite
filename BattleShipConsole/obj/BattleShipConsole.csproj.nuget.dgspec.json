@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\BattleShipConsole\\BattleShipConsole.csproj": {}
+    "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\battleshipConsole\\BattleShipConsole.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\BattleShipConsole\\BattleShipConsole.csproj": {
+    "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\battleshipConsole\\BattleShipConsole.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\BattleShipConsole\\BattleShipConsole.csproj",
+        "projectUniqueName": "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\battleshipConsole\\BattleShipConsole.csproj",
         "projectName": "BattleShipConsole",
-        "projectPath": "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\BattleShipConsole\\BattleShipConsole.csproj",
+        "projectPath": "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\battleshipConsole\\BattleShipConsole.csproj",
         "packagesPath": "C:\\Users\\amogus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\BattleShipConsole\\obj\\",
+        "outputPath": "C:\\Users\\amogus\\Documents\\cshrp\\BattleShips\\battleshipConsole\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amogus\\AppData\\Roaming\\NuGet\\NuGet.Config"

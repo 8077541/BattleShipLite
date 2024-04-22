@@ -169,6 +169,7 @@ namespace BattleShipConsole
                 Console.WriteLine($"Where do you want to place ship number {model.ShipLocations.Count + 1}: ");
                 string location = Console.ReadLine();
                 bool isValidLocation = GameLogic.PlaceShip(model, location);
+                Console.WriteLine(GameLogic.PlaceShip(model, location));
                 if (isValidLocation == false)
                 {
                     Console.WriteLine("That was not a valid location. Please try again.");
