@@ -20,7 +20,7 @@ namespace BattleshipLibrary
             {
                 foreach (int number in numbers)
                 {
-                    Console.WriteLine($"Adding {letter}{number}");
+
                     AddGridSpot(model, letter, number);
                 }
             }
@@ -159,7 +159,7 @@ namespace BattleshipLibrary
                 if (ship.SpotLetter == row.ToUpper() && ship.SpotNumber == column)
                 {
                     isValidLocation = true;
-
+                    ship.Status = GridSpotStatus.Sunk;
                 }
 
             }

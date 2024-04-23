@@ -92,12 +92,13 @@ namespace BattleShipConsole
 
         private static string AskForShot()
         {
-            Console.Write("Please enter your shot selection: ");
+            Console.Write("\nPlease enter your shot selection: ");
             return Console.ReadLine();
         }
 
         private static void DisplayShotGrid(PlayerInfoModel activePlayer)
         {
+            Console.Clear();
             string currentRow = activePlayer.ShotGrid[0].SpotLetter;
 
             foreach (var gridSpot in activePlayer.ShotGrid)
@@ -114,15 +115,15 @@ namespace BattleShipConsole
                 }
                 else if (gridSpot.Status == GridSpotStatus.Hit)
                 {
-                    Console.Write(" X ");
+                    Console.Write(" X  ");
                 }
                 else if (gridSpot.Status == GridSpotStatus.Miss)
                 {
-                    Console.Write(" O ");
+                    Console.Write(" O  ");
                 }
                 else
                 {
-                    Console.Write(" ? ");
+                    Console.Write(" ?  ");
                 }
 
             }
