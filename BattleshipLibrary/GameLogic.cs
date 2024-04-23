@@ -20,6 +20,7 @@ namespace BattleshipLibrary
             {
                 foreach (int number in numbers)
                 {
+                    Console.WriteLine($"Adding {letter}{number}");
                     AddGridSpot(model, letter, number);
                 }
             }
@@ -44,26 +45,29 @@ namespace BattleshipLibrary
             bool isValidLocation = ValidateGridLocation(model, row, column);
             bool isSpotOpen = ValidateShipLocation(model, row, column);
 
-            Console.WriteLine(isValidLocation);
-            Console.WriteLine(isSpotOpen);
+
             if (isValidLocation && isSpotOpen)
             {
                 output = true;
                 model.ShipLocations.Add(new GridSpotModel { SpotLetter = row.ToUpper(), SpotNumber = column, Status = GridSpotStatus.Ship });
             }
-            Console.WriteLine($"PlaceShip: {output}");
+
             return output;
         }
 
         private static bool ValidateShipLocation(PlayerInfoModel model, string row, int column)
         {
-            bool isValidLocation = false;
+
+            bool isValidLocation = true;
 
             foreach (var ship in model.ShipLocations)
             {
+
                 if (ship.SpotLetter == row.ToUpper() && ship.SpotNumber == column)
+
                 {
-                    isValidLocation = true;
+
+                    isValidLocation = false;
                 }
             }
 
@@ -75,7 +79,7 @@ namespace BattleshipLibrary
         {
             bool isValidLocation = false;
 
-            foreach (var ship in model.ShipLocations)
+            foreach (var ship in model.ShotGrid)
             {
                 if (ship.SpotLetter == row.ToUpper() && ship.SpotNumber == column)
                 {
@@ -110,6 +114,7 @@ namespace BattleshipLibrary
             };
 
             model.ShotGrid.Add(spot);
+
         }
 
         public static (string row, int column) SplitShotIntoRowAndColumn(string shot)
@@ -123,7 +128,7 @@ namespace BattleshipLibrary
             char[] shotArray = shot.ToArray();
             row = shotArray[0].ToString();
             column = int.Parse(shotArray[1].ToString());
-            Console.WriteLine($"Row: {row}, Column: {column}");
+
 
             return (row, column);
         }

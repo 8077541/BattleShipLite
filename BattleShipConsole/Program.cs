@@ -146,6 +146,8 @@ namespace BattleShipConsole
             //Load up the shot grid
             GameLogic.InitializeGrid(output);
 
+
+
             //Ask user for 5 ships placement
             PlaceShips(output);
 
